@@ -1225,6 +1225,15 @@ GLTFParser.prototype.loadMaterials = function() {
 
 			}
 
+			var transparency = materialValues.transparency;
+
+			if ( transparency !== undefined ) {
+
+				materialParams.opacity = transparency;
+				materialParams.transparent = transparency < 1;
+
+			}
+
 			var _material = new materialType( materialParams );
 			_material.name = material.name;
 
